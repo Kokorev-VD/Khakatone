@@ -5,27 +5,33 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
 
+import java.util.ArrayList;
+
 public class MyGdxGame extends ApplicationAdapter {
 	SpriteBatch batch;
-	Texture img;
-	
+
+	ArrayList<GrassFeeding> grassFeedings = new ArrayList<>();
+	ArrayList<MeatEating> meatEatings = new ArrayList<>();
+	ArrayList<Grass> grasses = new ArrayList<>();
+
 	@Override
-	public void create () {
+	public void create() {
 		batch = new SpriteBatch();
-		img = new Texture("badlogic.jpg");
+		for (int i = 0; i < 10; i++) {
+			grassFeedings.add(new GrassFeeding(100 * i, 250));
+			meatEatings.add(new MeatEating(100 * i, 1250))
+		}
 	}
 
 	@Override
 	public void render () {
 		ScreenUtils.clear(1, 0, 0, 1);
 		batch.begin();
-		batch.draw(img, 0, 0);
 		batch.end();
 	}
 	
 	@Override
 	public void dispose () {
 		batch.dispose();
-		img.dispose();
 	}
 }

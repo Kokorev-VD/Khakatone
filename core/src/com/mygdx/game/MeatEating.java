@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import java.util.ArrayList;
 
 public class MeatEating {
-    private Sprite skin = new Sprite(new Texture(""));
+    private Sprite skin = new Sprite(new Texture("meat_eating.png"));
 
     // блок для перемещения
     private double vX = 5;

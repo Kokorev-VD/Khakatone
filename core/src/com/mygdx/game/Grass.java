@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
 public class Grass {
-    private Sprite skin = new Sprite(new Texture(""));
+    private Sprite skin = new Sprite(new Texture("grass.png"));
     private boolean eat = false;
 
     public Grass() {

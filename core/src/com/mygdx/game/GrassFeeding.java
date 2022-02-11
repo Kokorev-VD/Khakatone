@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class GrassFeeding {
 
-    private Sprite skin = new Sprite(new Texture(""));
+    private Sprite skin = new Sprite(new Texture("grass_feeding.png"));
 
     // блок для перемещения
     private double vX = 3;
@@ -94,7 +94,8 @@ public class GrassFeeding {
         }
         else{
             MeatEating mex = findClosestME(me);
-            vX = (skin.getX() - mex.getSkin().getX()) / Math.sqrt(Math.pow(skin.getX() - mex.getSkin().getX(), 2) + Math.pow(skin.getY() - mex.getSkin().getY(), 2)) * 5;
+            if (skin.)
+                vX = (skin.getX() - mex.getSkin().getX()) / Math.sqrt(Math.pow(skin.getX() - mex.getSkin().getX(), 2) + Math.pow(skin.getY() - mex.getSkin().getY(), 2)) * 5;
             vY = (skin.getY() - mex.getSkin().getX()) / Math.sqrt(Math.pow(skin.getX() - mex.getSkin().getX(), 2) + Math.pow(skin.getY() - mex.getSkin().getY(), 2)) * 5;
         }
         counter++;
