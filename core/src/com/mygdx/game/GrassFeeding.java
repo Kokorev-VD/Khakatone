@@ -1,5 +1,6 @@
 package com.mygdx.game;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
@@ -88,24 +89,27 @@ public class GrassFeeding {
         repr(ar);
         eat(grass);
         Grass ex = findClosestFood(grass);
-        if(ex != null) {
+        if (ex != null) {
             vX = (skin.getX() - ex.getSkin().getX()) / Math.sqrt(Math.pow(skin.getX() - ex.getSkin().getX(), 2) + Math.pow(skin.getY() - ex.getSkin().getY(), 2)) * 5;
             vY = (skin.getY() - ex.getSkin().getX()) / Math.sqrt(Math.pow(skin.getX() - ex.getSkin().getX(), 2) + Math.pow(skin.getY() - ex.getSkin().getY(), 2)) * 5;
-        }
-        else{
+        } else {
             MeatEating mex = findClosestME(me);
-            if (skin.)
-                vX = (skin.getX() - mex.getSkin().getX()) / Math.sqrt(Math.pow(skin.getX() - mex.getSkin().getX(), 2) + Math.pow(skin.getY() - mex.getSkin().getY(), 2)) * 5;
-            vY = (skin.getY() - mex.getSkin().getX()) / Math.sqrt(Math.pow(skin.getX() - mex.getSkin().getX(), 2) + Math.pow(skin.getY() - mex.getSkin().getY(), 2)) * 5;
+            vX = -1 * (skin.getX() - mex.getSkin().getX()) / Math.sqrt(Math.pow(skin.getX() - mex.getSkin().getX(), 2) + Math.pow(skin.getY() - mex.getSkin().getY(), 2)) * 5;
+            vY = -1 * (skin.getY() - mex.getSkin().getX()) / Math.sqrt(Math.pow(skin.getX() - mex.getSkin().getX(), 2) + Math.pow(skin.getY() - mex.getSkin().getY(), 2)) * 5;
+        }
+        if (skin.getX() < 100 || skin.getX() > Gdx.graphics.getWidth() - 100) {
+            vX *= -1;
+        }
+        if (skin.getY() < 100 || skin.getY() > Gdx.graphics.getHeight() - 100) {
+            vY *= -1;
         }
         counter++;
-        if(counter % 2 == 1){
+        if (counter % 2 == 1) {
             skin.setX(skin.getX() + shX);
-        }
-        else{
+        } else {
             skin.setX(skin.getX() - shX);
         }
-        if(counter == 1000000){
+        if (counter == 1000000) {
             counter = 0;
         }
         skin.setX((float) (skin.getX() + vX));
